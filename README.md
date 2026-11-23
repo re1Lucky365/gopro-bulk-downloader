@@ -1,3 +1,5 @@
+ssh-keygen -t ed25519 -C "your-email@example.com"
+
 git remote add origin https://github.com/<your-username>/my-first-repo.git
 git push -u origin main
 
