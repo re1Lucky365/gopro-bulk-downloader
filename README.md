@@ -1,3 +1,15 @@
+# Check current remotes
+git remote -v
+
+# Set or update the origin remote to SSH
+git remote set-url origin git@github.com:<your-username>/<master-repo>.git
+
+# Test SSH authentication to GitHub
+ssh -T git@github.com
+
+# Verify read access to the repository's refs
+git ls-remote origin
+
 git remote set-url origin git@github.com:<your-username>/<your-repo>.git
 
 ssh -T git@github.com
