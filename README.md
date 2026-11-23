@@ -1,3 +1,6 @@
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+
 awk 'NF >= 2 {
   path = $2
   sub(/^\.\//, "", path)
