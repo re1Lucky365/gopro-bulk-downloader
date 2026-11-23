@@ -1,3 +1,5 @@
+git remote set-url origin git@github.com:<your-username>/<your-repo>.git
+
 ssh -T git@github.com
 
 cat ~/.ssh/id_ed25519.pub
