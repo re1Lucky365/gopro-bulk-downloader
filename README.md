@@ -1,3 +1,11 @@
+Host github.com
+  HostName github.com
+  User git
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+
 source ~/.bashrc
 
 source ~/.bashrc
