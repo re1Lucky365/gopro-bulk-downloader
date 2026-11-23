@@ -1,3 +1,6 @@
+git add .
+git commit -m "Initial commit"
+
 git init -b main
 
 git config --global user.name "Your Name"
