@@ -1,3 +1,6 @@
+source ~/.bashrc
+
+source ~/.bashrc
 # Auto-start ssh-agent and load GitHub SSH key
 SSH_ENV="$HOME/.ssh/agent.env"
 
