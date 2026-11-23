@@ -1,3 +1,5 @@
+git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
+
 Set-Service -Name ssh-agent -StartupType Automatic
 Start-Service ssh-agent
 
