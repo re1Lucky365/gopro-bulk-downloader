@@ -1,3 +1,6 @@
+git config --global alias.set-ssh '!f() { git remote set-url origin "git@github.com:$1/${2%.git}.git" && git remote -v; }; f'
+
+
 chmod +x ~/bin/git-ssh-sync.sh
 
 #!/usr/bin/env bash
