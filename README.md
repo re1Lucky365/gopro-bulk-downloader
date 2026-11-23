@@ -1,3 +1,26 @@
+# Auto-start ssh-agent and load GitHub SSH key
+SSH_ENV="$HOME/.ssh/agent.env"
+
+start_agent() {
+  mkdir -p "$HOME/.ssh"
+  chmod 700 "$HOME/.ssh"
+  ssh-agent -s | sed 's/^echo/#echo/' > "$SSH_ENV"
+  chmod 600 "$SSH_ENV"
+  . "$SSH_ENV" > /dev/null
+  ssh-add "$HOME/.ssh/id_ed25519"
+}
+
+if [ -f "$SSH_ENV" ]; then
+  . "$SSH_ENV" > /dev/null
+  if ! kill -0 "$SSH_AGENT_PID" 2>/dev/null; then
+    start_agent
+  elif ! ssh-add -l >/dev/null 2>&1; then
+    ssh-add "$HOME/.ssh/id_ed25519"
+  fi
+else
+  start_agent
+fi
+
 git config --global alias.set-ssh '!f() { git remote set-url origin "git@github.com:$1/${2%.git}.git" && git remote -v; }; f'
 
 
