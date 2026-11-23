@@ -1,3 +1,6 @@
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
 ssh-keygen -t ed25519 -C "your-email@example.com"
 
 git remote add origin https://github.com/<your-username>/my-first-repo.git
