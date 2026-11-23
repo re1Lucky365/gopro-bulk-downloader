@@ -1,3 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <github-username> <repo-name>"
+  exit 1
+fi
+
+# Strip accidental whitespace, quotes, or stray pasted prefixes
+raw_user="$1"
+raw_repo="$2"
+
+clean_user="$(printf '%s' "$raw_user" | tr -d '[:space:]')"
+clean_repo="$(printf '%s' "$raw_repo" | tr -d '[:space:]')"
+clean_repo="${clean_repo%.git}"
+
+target_url="git@github.com:${clean_user}/${clean_repo}.git"
+
+git rev-parse --is-inside-work-tree >/dev/null
+git remote set-url origin "$target_url"
+
+echo "Remote set to: $(git remote get-url origin)"
+ssh -T git@github.com || true
+git ls-remote origin
+
 # Check current remotes
 git remote -v
 
