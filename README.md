@@ -1,3 +1,6 @@
+ssh-add -l
+ssh -T git@github.com
+
 git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 
 Set-Service -Name ssh-agent -StartupType Automatic
