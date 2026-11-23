@@ -1,3 +1,5 @@
+ssh -T git@github.com
+
 cat ~/.ssh/id_ed25519.pub
 
 eval "$(ssh-agent -s)"
