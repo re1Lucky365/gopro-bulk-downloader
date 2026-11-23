@@ -1,3 +1,9 @@
+awk 'NF >= 2 {
+  path = $2
+  sub(/^\.\//, "", path)
+  print path
+}' "$CHECKSUM_FILE"
+
 # gopro-media-downloader
 
 Download your **entire** GoPro cloud media library from the command line — no
