@@ -1,3 +1,5 @@
+chmod +x ~/bin/git-ssh-sync.sh
+
 #!/usr/bin/env bash
 set -euo pipefail
 
